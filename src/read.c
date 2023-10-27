@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../include/read.h"
 
-void readCommand(char comando[][30], int linha) {
-    fgets(comando[linha], sizeof(comando[linha]), stdin);
+void readCommand(char comando[][30], int i) {
+    fgets(comando[i], sizeof(comando[i]), stdin);
 }

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "../include/logicalops.h"
 
+
 int beq(char reg[], int rx, int ry)
 {
    if (reg[rx] == reg[ry]) {
@@ -17,5 +18,11 @@ int blt(char reg[], int rx, int ry)
         return 1; 
     } else {
         return 0; 
+    }
+}
+void jmp(char reg[], int rx, int *i) {
+    if (rx >= 0 && rx < 32) {
+        // You can set the program counter (i) to the value in the register.
+        *i = reg[rx];
     }
 }

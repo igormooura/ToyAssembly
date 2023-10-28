@@ -8,7 +8,7 @@ int main(void) {
     int i, x;
 
     scanf("%d", &x);
-    // Consome a quebra de linha após a leitura de x
+    //quebra de linha após a leitura de x
     fgetc(stdin);
 
     for (i = 0; i < x; i++) {

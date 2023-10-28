@@ -21,19 +21,16 @@ void decoder(char comando[][30], int n)
 
         if (strcasecmp(aux, "PRINT") == 0)
         {
-            // Analisa a instrução PRINT
-            sscanf(comando[i], "%s %d", aux, &rx);
+            sscanf(comando[i], "%s R%d", aux, &rx);
             write(reg, rx);
         }
         else if (strcasecmp(aux, "LOAD") == 0)
         {
-            // Analisa a instrução LOAD
             sscanf(comando[i], "%s R%d R%d", aux, &rx, &ry);
             load(reg, memory, rx, ry);
         }
         else if (strcasecmp(aux, "STORE") == 0)
         {
-            // Analisa a instrução STORE
             sscanf(comando[i], "%s R%d R%d", aux, &rx, &ry);
             store(reg, memory, rx, ry);
         }
@@ -44,35 +41,31 @@ void decoder(char comando[][30], int n)
         }
         else if (strcasecmp(aux, "SUB") == 0)
         {
-            // Analisa a instrução SUB
             sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
             sub(reg, rx, ry, rz);
         }
         else if (strcasecmp(aux, "DIV") == 0)
         {
-            // Analisa a instrução DIV
             sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
             if (ry != 0)
-            { // Check if divisor is not zero
+            { // Se, somente se, ry nao for = 0
                 divi(reg, rx, ry, rz);
             }
         }
         else if (strcasecmp(aux, "MUL") == 0)
         {
-            // Analisa a instrução MUL
             sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
             mul(reg, rx, ry, rz);
         }
         else if (strcasecmp(aux, "MOD") == 0)
         {
-            // Analisa a instrução MOD
             sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
             mod(reg, rx, ry, rz);
             
         }
         else if (strcasecmp(aux, "BEQ") == 0)
         {
-            sscanf(comando[i], "%s %d %d %d", aux, &rx, &ry, &rz);
+            sscanf(comando[i], "%s R%d R%d %d", aux, &rx, &ry, &rz);
             if (beq(reg, rx, ry))
             {
                 jmp(reg, rz, &i);
@@ -83,7 +76,7 @@ void decoder(char comando[][30], int n)
             sscanf(comando[i], "%s %d %d %d", aux, &rx, &ry, &rz);
             if (blt(reg, rx, ry))
             {
-                jmp(reg, rz, &i);
+                jmp(reg, rz, &i); //vai "pular", rz
             }
         }
         else if (strcasecmp(aux, "MOV") == 0)
@@ -92,15 +85,14 @@ void decoder(char comando[][30], int n)
             sscanf(comando[i], "%s %s %d", aux, src, &rx);
             if (strcasecmp(src, "R") == 0)
             {
-
                 sscanf(comando[i], "%s R%d %d", aux, &rx, &ry);
-                mov(reg, rx, ry); // Move from one register to another
+                mov(reg, rx, ry); // Move registro -> registro
             }
             else
             {
                 int value;
                 sscanf(comando[i], "%s R%d %d", aux, &rx, &value);
-                movInt(reg, rx, value); // Move an integer to a register
+                movInt(reg, rx, value); // Move registro -> inteiro
             }
         }
         else if (strcasecmp(aux, "EXIT") == 0)

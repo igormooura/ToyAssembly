@@ -20,8 +20,6 @@ int blt(int reg[], int rx, int ry)
         return 0; 
     }
 }
-void jmp(int reg[], int rx, int *i) {
-    if (rx >= 0 && rx < 32) {
-        *i = reg[rx];
-    }
+void jmp(int reg[], int endereco, int *i) {
+    *i = endereco - 1;
 }

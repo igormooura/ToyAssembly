@@ -4,12 +4,12 @@
 
 void load(int reg[], int memory[], int rx, int ry)
 {
-    reg[rx] = memory[ry];
+    reg[rx] = memory [reg[ry]];
 }
 
 void store(int reg[], int memory[], int rx, int ry)
 {
-    memory[ry] = reg[rx];
+    memory[reg[ry]] = reg[rx];
 }
 
 

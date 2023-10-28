@@ -3,7 +3,7 @@
 
 int beq(int reg[], int rx, int ry);
 int blt(int reg[], int rx, int ry);
-void jmp(int reg[], int rx, int *i);
+void jmp(int reg[], int endereco, int *i);
 #endif
 
 

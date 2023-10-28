@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "../include/memoryops.h"
 
-void load(char reg[], int memory[], int rx, int ry)
+void load(int reg[], int memory[], int rx, int ry)
 {
     reg[rx] = memory[ry];
 }
 
-void store(char reg[], int memory[], int rx, int ry)
+void store(int reg[], int memory[], int rx, int ry)
 {
     memory[ry] = reg[rx];
 }

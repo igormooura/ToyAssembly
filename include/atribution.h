@@ -1,7 +1,7 @@
 #ifndef ATRIBUTION_H
 #define ATRIBUTION_H
 
-void mov(char reg[], int rx, int ry_or_value);
-void movInt(char reg[], int rx, int value);
+void mov(int reg[], int rx, int ry_or_value);
+void movInt(int reg[], int rx, int value);
 
 #endif

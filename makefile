@@ -3,7 +3,7 @@ CC = gcc
 CC_FLAGS = -pedantic -Wall -Wextra -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Winit-self -Wlogical-op -Wmissing-declarations -Wmissing-include-dirs -Wredundant-decls -Wshadow -Wsign-conversion -Wstrict-overflow=5 -Wswitch-default -Wundef -Werror -Wno-unused
 H_SOURCE = $(wildcard include/*.h)
 C_SOURCE = $(wildcard src/*.c)
-TARGET_FOLDER = build
+TARGET_FOLDER = bin
 OBJ = $(patsubst src/%.c,build/%.o,$(C_SOURCE))
 
 build: $(TARGET_FOLDER) $(OBJ)

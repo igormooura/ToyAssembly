@@ -22,7 +22,7 @@ void decoder(char comando[][30], int n)
         if (strcasecmp(aux, "PRINT") == 0)
         {
             // Analisa a instrução PRINT
-            sscanf(comando[i], "%s R%d", aux, &rx);
+            sscanf(comando[i], "%s %d", aux, &rx);
             write(reg, rx);
         }
         else if (strcasecmp(aux, "LOAD") == 0)
@@ -67,14 +67,12 @@ void decoder(char comando[][30], int n)
         {
             // Analisa a instrução MOD
             sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
-            if (ry != 0)
-            {
-                mod(reg, rx, ry, rz);
-            }
+            mod(reg, rx, ry, rz);
+            
         }
         else if (strcasecmp(aux, "BEQ") == 0)
         {
-            sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
+            sscanf(comando[i], "%s %d %d %d", aux, &rx, &ry, &rz);
             if (beq(reg, rx, ry))
             {
                 jmp(reg, rz, &i);
@@ -82,7 +80,7 @@ void decoder(char comando[][30], int n)
         }
         else if (strcasecmp(aux, "BLT") == 0)
         {
-            sscanf(comando[i], "%s R%d R%d R%d", aux, &rx, &ry, &rz);
+            sscanf(comando[i], "%s %d %d %d", aux, &rx, &ry, &rz);
             if (blt(reg, rx, ry))
             {
                 jmp(reg, rz, &i);
@@ -91,11 +89,11 @@ void decoder(char comando[][30], int n)
         else if (strcasecmp(aux, "MOV") == 0)
         {
             char src[30];
-            sscanf(comando[i], "%s %s R%d", aux, src, &rx);
+            sscanf(comando[i], "%s %s %d", aux, src, &rx);
             if (strcasecmp(src, "R") == 0)
             {
-                
-                sscanf(comando[i], "%s R%d R%d", aux, &rx, &ry);
+
+                sscanf(comando[i], "%s R%d %d", aux, &rx, &ry);
                 mov(reg, rx, ry); // Move from one register to another
             }
             else
@@ -111,7 +109,7 @@ void decoder(char comando[][30], int n)
         }
         else if (strcasecmp(aux, "JMP") == 0)
         {
-            sscanf(comando[i], "%s R%d", aux, &rx);
+            sscanf(comando[i], "%s %d", aux, &rx);
             jmp(reg, rx, &i);
         }
         total_instr++;

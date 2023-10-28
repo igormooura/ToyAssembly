@@ -19,7 +19,7 @@ void mul(int reg[], int rx, int ry, int rz) {
 }
 
 void mod(int reg[], int rx, int ry, int rz) {
-    int aux = reg[ry] % reg[rz];
-    reg[rx] = (aux < 0) ? (aux + reg[rz]) : aux;
+    reg[rx] = reg[ry] % reg[rz];
+    
 }
 

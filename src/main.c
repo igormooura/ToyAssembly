@@ -7,7 +7,7 @@ int main(void) {
     char comando[100][30];
     int i, x;
 
-    scanf("%d\n", &x);
+    scanf("%d", &x);
     // Consome a quebra de linha após a leitura de x
     fgetc(stdin);
 

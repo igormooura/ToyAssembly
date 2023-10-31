@@ -14,7 +14,7 @@ int beq(int reg[], int rx, int ry)
 
 int blt(int reg[], int rx, int ry)
 {
-    if (reg[ry] < reg[rx]) { 
+    if (reg[rx] < reg[ry]) { 
         return 1; 
     } else {
         return 0; 

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "../include/output.h"
 #include "../include/memoryops.h"
 #include "../include/mathops.h"
@@ -96,7 +97,7 @@ void decoder(char comando[][30], int n)
         }
         else if (strcasecmp(aux, "EXIT") == 0)
         {
-            return;
+            exit(0);
         }
         else if (strcasecmp(aux, "JMP") == 0)
         {
